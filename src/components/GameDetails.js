@@ -48,7 +48,6 @@ const BigContainer = styled(motion.div)`
     width: 100%;
     height: 100vh;
     pointer-events: none;
-    transition: 20s;
 
     overflow: hidden;
     display: flex;
