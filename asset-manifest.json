@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/lahcenrahlaoui.github.io/gamesApi/static/css/main.4e65d2ef.css",
-    "main.js": "/lahcenrahlaoui.github.io/gamesApi/static/js/main.71f437fe.js",
-    "index.html": "/lahcenrahlaoui.github.io/gamesApi/index.html",
-    "main.4e65d2ef.css.map": "/lahcenrahlaoui.github.io/gamesApi/static/css/main.4e65d2ef.css.map",
-    "main.71f437fe.js.map": "/lahcenrahlaoui.github.io/gamesApi/static/js/main.71f437fe.js.map"
+    "main.css": "/gamesApi/static/css/main.4e65d2ef.css",
+    "main.js": "/gamesApi/static/js/main.5ac2c9d1.js",
+    "index.html": "/gamesApi/index.html",
+    "main.4e65d2ef.css.map": "/gamesApi/static/css/main.4e65d2ef.css.map",
+    "main.5ac2c9d1.js.map": "/gamesApi/static/js/main.5ac2c9d1.js.map"
   },
   "entrypoints": [
     "static/css/main.4e65d2ef.css",
-    "static/js/main.71f437fe.js"
+    "static/js/main.5ac2c9d1.js"
   ]
 }
