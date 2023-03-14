@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [x.x]
+        node-version: [18.x]
     
     steps:
       - name: Checkout
@@ -23,5 +23,5 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          # branch: gh-pages
+          branch: gh-pages
           folder: build
