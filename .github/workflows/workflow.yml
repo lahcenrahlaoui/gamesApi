@@ -1,27 +1,39 @@
-name: Deploy my page 
+# name: Deploy my page 
 
+# on:
+#   push:
+#     branches:
+#      - "main"
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     strategy:
+#       matrix:
+#         node-version: [18.x]
+    
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2
+      
+#       - name: Install and build
+#         run: npm install && npm run build
+
+#       - name: Deploy
+#         uses: tanwanimohit/deploy-react-to-ghpages@v1.0.1
+#         with:
+#           branch: gh-pages
+#           folder: build
 on:
   push:
     branches:
-     - "main"
-
+      - 'main'
+ 
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x]
-    
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      
-      - name: Install and build
-        run: npm install && npm run build
-
-      - name: Deploy
-        uses: tanwanimohit/deploy-react-to-ghpages@v1.0.1
-        with:
-          branch: gh-pages
-          folder: build
+    - id: build-publish
+      uses: bitovi/github-actions-react-to-ghp@v1.1.1
+        path: dist
