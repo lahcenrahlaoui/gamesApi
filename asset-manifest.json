@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/lahcenrahlaoui.github.io/gamesApi/static/css/main.4e65d2ef.css",
+    "main.js": "/lahcenrahlaoui.github.io/gamesApi/static/js/main.71f437fe.js",
+    "index.html": "/lahcenrahlaoui.github.io/gamesApi/index.html",
+    "main.4e65d2ef.css.map": "/lahcenrahlaoui.github.io/gamesApi/static/css/main.4e65d2ef.css.map",
+    "main.71f437fe.js.map": "/lahcenrahlaoui.github.io/gamesApi/static/js/main.71f437fe.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4e65d2ef.css",
+    "static/js/main.71f437fe.js"
+  ]
+}
