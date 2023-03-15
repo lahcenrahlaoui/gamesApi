@@ -16,6 +16,7 @@ const Gamex = ({ game, idx, setGameIdx , setPlace }) => {
     },[location , idx])
     const openGameDetail = (e) => {
         setGameIdx(idx);
+        console.log(idx)
     };
     return (
         <GameCard id={idx} key={game.id} onClick={openGameDetail}>
