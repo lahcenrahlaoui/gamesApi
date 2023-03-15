@@ -2,34 +2,39 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadGames } from "../actions/gamesAction";
 
-import Game from "../components/Game";
-import GameDetails from "../components/GameDetails";
+
+import Gamex from "../components/Gamex";
+import GameDetailsx from "../components/GameDetailsx";
 
 import { useNavigate , useLocation } from 'react-router-dom'
 
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-const Home = () => {
+const Homex = () => {
     const [displayCardStatus, setDisplayCardStatus] = useState(false);
     const [place, setPlace] = useState('');
-    const [gameIdx, setGameIdx] = useState(Math.floor(Math.random() * 20));
+    const location = useLocation();
+    const locationPath = location.pathname.split('/')[2]
+    const [gameIdx, setGameIdx] = useState(parseInt(locationPath));
+   
+    
     const dispatch = useDispatch();
 
     
     useEffect(() => {
         dispatch(loadGames("games"));
-        
     }, [dispatch]);
 
-    const [cardActive, setCardActive] = useState(false);
+ 
 
     const { popular } = useSelector((state) => state.games);
 
-    // const popularGames = games.popular;
+
+    
     const popularGames = popular;
 
-    const names = popularGames.map((i) => i.name);
+
 
     const imgs = popularGames.map((i) =>
         i.short_screenshots.map((s) => s.image)
@@ -39,8 +44,11 @@ const Home = () => {
 
     const navigate  = useNavigate ();
    
-    const location  = useLocation();
     const displayGameCard = (e) => {
+        
+        let main = e.currentTarget
+        console.log(main)
+
         
         var parent = e.target.parentNode;
         if (!parent.classList.contains("hello")) {
@@ -52,32 +60,32 @@ const Home = () => {
         }
     };
     return (
-        <div onClick={displayGameCard}>
+        <div id="big" onClick={displayGameCard}>
             <div>
                 {place.length>1 ? (
-                // {/* {!popular.isLoading && ( */}
-                        <GameDetails
+                        <GameDetailsx
                             popularGames={popularGames}
                             imgs={imgs}
-                            displayCardStatus={displayCardStatus}
+
                             gameIdx={gameIdx} 
-                            place={place}
+
+
                         />
                 ):""}
             </div>
-           
-            <Title>* GAMES * </Title>
-            <Games>                
+            
+            <Title> * GAMES * </Title>
+            <Games>
                 {popularGames.length
-                    ? popularGames.map((game, idx) =>  (
-                        <Game
-                            
-                              key={idx}
+                    ? popularGames.map((game) =>  (
+                        <Gamex
+                              key={game.id}
                               game={game}
-                              idx={idx}
+                              idx={game.id}
                               setGameIdx={setGameIdx}
                               setPlace={setPlace}
                               />
+                        
                         )
                     )
                     : ""}
@@ -100,4 +108,4 @@ const Games = styled(motion.div)`
     grid-row-gap: 3rem;
 `;
 
-export default Home;
+export default Homex;

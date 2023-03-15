@@ -1,10 +1,12 @@
 import axios from "axios";
 
-import {getURL} from "../api"
+import { getURL } from "../api";
 
-export const loadGames =  (x) => async (dispatch) => {
-    
-    const popularx = await axios.get( getURL(x) );
+export const loadGames = (x) => async (dispatch) => {
+    dispatch({
+        type: "IS_LOADING",
+    });
+    const popularx = await axios.get(getURL(x));
 
     dispatch({
         type: "FETCH_GAMES",
@@ -13,15 +15,16 @@ export const loadGames =  (x) => async (dispatch) => {
         },
     });
 };
-export const loadOneGame =  (x) => async (dispatch) => {
-    
-    const oneGameX = await axios.get( getURL(x) );
+export const loadOneGame = (x) => async (dispatch) => {
+    dispatch({
+        type: "IS_LOADING",
+    });
+    const oneGameX = await axios.get(getURL(x));
 
     dispatch({
         type: "FETCH_GAME",
         payload: {
-            oneGame: oneGameX.data
+            oneGame: oneGameX.data,
         },
     });
 };
-

@@ -9,15 +9,24 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { loadOneGame } from "../actions/gamesAction";
 import { useLocation } from "react-router-dom";
-const GameDetails = ({ popularGames, imgs, gameIdx , place }) => {
+const GameDetailsx = ({ popularGames , gameIdx }) => {
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(loadOneGame(`games/${popularGames[gameIdx].id}`));
+        dispatch(loadOneGame(`games/${gameIdx}`));
         
-    }, [dispatch, popularGames[gameIdx].id]);
-    console.log(parseInt(place.split("/")[2]))
-    console.log(gameIdx)
+        
+    }, [dispatch, gameIdx]);
+
+   
     const { oneGame } = useSelector((state) => state.games);
+    
+    const cardImages = popularGames.filter((p)=>{ 
+        if(p.id === oneGame.id){
+            return p 
+        }
+    })
+    
+    // console.log(allimags[0].short_screenshots)
 
     return (
         <BigContainer className="hello">
@@ -32,11 +41,13 @@ const GameDetails = ({ popularGames, imgs, gameIdx , place }) => {
                         ></div>
                     </GameDescription>
 
+                    
                     <GameImages>
-                        {imgs[gameIdx].map((screenShot) => (
-                            <img key={screenShot} src={screenShot} alt="true" />
-                        ))}
-                    </GameImages>
+                        { cardImages.length ? cardImages[0].short_screenshots.map((screenShot) => (
+                            <img key={screenShot.image} src={screenShot.image}/>
+                        )) :''}
+                    </GameImages> 
+                    
                 </GameDetail>
         </BigContainer>
     );
@@ -97,4 +108,4 @@ const GameImages = styled(motion.div)`
     }
 `;
 
-export default GameDetails;
+export default GameDetailsx;

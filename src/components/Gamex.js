@@ -4,12 +4,15 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 import { useLocation } from 'react-router-dom'
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
-const Game = ({ game, idx, setGameIdx , setPlace }) => {
+const Gamex = ({ game, idx, setGameIdx , setPlace }) => {
+ 
+    // console.log(scrolls.current)
     const location  = useLocation();
     useEffect(()=>{
         setPlace(location.pathname);
+       
     },[location , idx])
     const openGameDetail = (e) => {
         setGameIdx(idx);
@@ -39,4 +42,4 @@ const GameCard = styled(motion.div)`
     }
 `;
 
-export default Game;
+export default Gamex;
